@@ -117,7 +117,7 @@ namespace MyShop.Services
                 var results = (from b in basket.BasketItems join p in productContext.Collection() on b.ProductId equals p.Id
                                   select new BasketItemViewModel()
                                   {
-                                      id = b.Id,
+                                      Id = b.Id,
                                       Quantity = b.Quantity,
                                       ProductName = p.Name,
                                       Image = p.Image,
@@ -132,7 +132,7 @@ namespace MyShop.Services
             }
         }
 
-        public BasketSummaryViewModel GetBucketSummary(HttpContextBase httpContext)
+        public BasketSummaryViewModel GetBasketSummary(HttpContextBase httpContext)
         {
             Basket basket = GetBasket(httpContext, false);
             BasketSummaryViewModel model = new BasketSummaryViewModel(0, 0);
@@ -155,5 +155,9 @@ namespace MyShop.Services
             }
         }
 
+        //public BasketSummaryViewModel GetBasketSummary(HttpContextBase httpContext)
+        //{
+        //    throw new NotImplementedException();
+        //}
     }
 }
